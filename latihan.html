@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Soal & Latihan - Ruang Prestasi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for latihan page */
+        .practice-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .practice-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .practice-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .question-banks {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .question-bank-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .question-bank-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .bank-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .bank-header h4 {
+            color: #2c3e50;
+            margin: 0;
+            flex: 1;
+        }
+        
+        .question-count {
+            background: #f8f9fa;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .bank-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .bank-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .topic-tag {
+            background: #e8f4fc;
+            color: #3498db;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .bank-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .difficulty-levels {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .difficulty-badge {
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .bank-link {
+            background: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .bank-link:hover {
+            background: #2980b9;
+        }
+        
+        .levels-container {
+            margin-bottom: 2rem;
+        }
+        
+        .level-section {
+            margin-bottom: 2rem;
+        }
+        
+        .level-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .level-title small {
+            color: #666;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <h1><i class="fas fa-trophy"></i> Ruang Prestasi</h1>
+        </div>
+        <button class="mobile-menu" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="lomba.html"><i class="fas fa-flag"></i> Lomba</a></li>
+            <li><a href="materi.html"><i class="fas fa-book"></i> Materi</a></li>
+            <li><a href="latihan.html" class="active"><i class="fas fa-pen"></i> Latihan</a></li>
+            <li><a href="quiz.html"><i class="fas fa-question-circle"></i> Quiz</a></li>
+            <li><a href="forum.html"><i class="fas fa-comments"></i> Forum</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1><i class="fas fa-pen"></i> Bank Soal & Latihan</h1>
+        <p>Ribuan soal latihan dengan pembahasan lengkap untuk semua tingkat</p>
+    </section>
+
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3><i class="fas fa-filter"></i> Filter Soal</h3>
+            <div class="filter-options">
+                <select id="subject-filter" class="filter-select">
+                    <option value="all">Semua Mata Pelajaran</option>
+                    <option value="matematika">Matematika</option>
+                    <option value="fisika">Fisika</option>
+                    <option value="kimia">Kimia</option>
+                    <option value="biologi">Biologi</option>
+                </select>
+
+                <select id="level-filter" class="filter-select">
+                    <option value="all">Semua Tingkat</option>
+                    <option value="smp">SMP</option>
+                    <option value="sma">SMA</option>
+                    <option value="kuliah">Kuliah</option>
+                </select>
+
+                <select id="difficulty-filter" class="filter-select">
+                    <option value="all">Semua Tingkat Kesulitan</option>
+                    <option value="easy">Mudah</option>
+                    <option value="medium">Sedang</option>
+                    <option value="hard">Sulit</option>
+                </select>
+
+                <button onclick="filterLatihan()" class="btn-primary">
+                    <i class="fas fa-filter"></i> Filter Soal
+                </button>
+            </div>
+        </div>
+
+        <!-- Practice Types -->
+        <div class="practice-types">
+            <div class="practice-card">
+                <h4><i class="fas fa-bolt" style="color: #f39c12;"></i> Challenge Harian</h4>
+                <p>5 soal pilihan setiap hari dari berbagai mata pelajaran</p>
+                <a href="#" class="bank-link">Mulai Challenge</a>
+            </div>
+            
+            <div class="practice-card">
+                <h4><i class="fas fa-chart-line" style="color: #2ecc71;"></i> Tes Mingguan</h4>
+                <p>Uji kemampuan dengan tes komprehensif setiap minggu</p>
+                <a href="#" class="bank-link">Ikuti Tes</a>
+            </div>
+            
+            <div class="practice-card">
+                <h4><i class="fas fa-trophy" style="color: #e74c3c;"></i> Simulasi Kompetisi</h4>
+                <p>Simulasi lengkap seperti kompetisi sesungguhnya</p>
+                <a href="#" class="bank-link">Mulai Simulasi</a>
+            </div>
+        </div>
+
+        <!-- Question Banks Container -->
+        <div id="latihan-container">
+            <!-- Content will be loaded by latihan-data.js -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-trophy"></i> Ruang Prestasi</h3>
+                <p>Platform pembelajaran dan kompetisi akademik terkemuka di Indonesia.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-envelope"></i> info@ruangprestasi.id</p>
+                <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+            </div>
+            <div class="footer-section">
+                <h3>Ikuti Kami</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ruang Prestasi. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="latihan-data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in animation to sections
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.subject-section, .practice-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Ruang Prestasi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-trophy"></i> Admin Panel</h2>
+            <p>Ruang Prestasi</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="#dashboard" class="active" onclick="showSection('dashboard')">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#lomba" onclick="showSection('lomba')">
+                        <i class="fas fa-trophy"></i> Kelola Lomba
+                    </a>
+                </li>
+                <li>
+                    <a href="#materi" onclick="showSection('materi')">
+                        <i class="fas fa-book"></i> Kelola Materi
+                    </a>
+                </li>
+                <li>
+                    <a href="#soal" onclick="showSection('soal')">
+                        <i class="fas fa-question-circle"></i> Kelola Soal
+                    </a>
+                </li>
+                <li>
+                    <a href="#quiz" onclick="showSection('quiz')">
+                        <i class="fas fa-gamepad"></i> Kelola Quiz
+                    </a>
+                </li>
+                <li>
+                    <a href="#forum" onclick="showSection('forum')">
+                        <i class="fas fa-comments"></i> Kelola Forum
+                    </a>
+                </li>
+                <li>
+                    <a href="#users" onclick="showSection('users')">
+                        <i class="fas fa-users"></i> Kelola Pengguna
+                    </a>
+                </li>
+                <li>
+                    <a href="#settings" onclick="showSection('settings')">
+                        <i class="fas fa-cog"></i> Pengaturan
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <img src="https://ui-avatars.com/api/?name=Admin&background=3498db&color=fff" alt="Admin">
+                <div>
+                    <strong>Administrator</strong>
+                    <small>admin@ruangprestasi.id</small>
+                </div>
+            </div>
+            <a href="index.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Keluar
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Top Bar -->
+        <header class="admin-header">
+            <div class="header-left">
+                <button class="sidebar-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 id="page-title">Dashboard Admin</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="admin-search">
+                    <input type="text" placeholder="Cari...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Sections -->
+        <div class="admin-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #3498db;">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>50</h3>
+                            <p>Lomba Aktif</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #2ecc71;">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>500+</h3>
+                            <p>Materi Belajar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #e74c3c;">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>1,250+</h3>
+                            <p>Soal Latihan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: #9b59b6;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>5,000+</h3>
+                            <p>Pengguna</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Recent Activities -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-history"></i> Aktivitas Terbaru</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="activity-list">
+                                <li>
+                                    <i class="fas fa-plus-circle text-success"></i>
+                                    <div>
+                                        <strong>Lomba baru ditambahkan</strong>
+                                        <small>2 menit lalu</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-edit text-warning"></i>
+                                    <div>
+                                        <strong>Materi diperbarui</strong>
+                                        <small>1 jam lalu</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-user-plus text-info"></i>
+                                    <div>
+                                        <strong>25 pengguna baru</strong>
+                                        <small>Hari ini</small>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-comment text-primary"></i>
+                                    <div>
+                                        <strong>15 diskusi baru</strong>
+                                        <small>2 jam lalu</small>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-bolt"></i> Aksi Cepat</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="quick-actions">
+                                <button class="action-btn" onclick="showSection('lomba')">
+                                    <i class="fas fa-plus"></i> Tambah Lomba
+                                </button>
+                                <button class="action-btn" onclick="showSection('materi')">
+                                    <i class="fas fa-plus"></i> Tambah Materi
+                                </button>
+                                <button class="action-btn" onclick="showSection('soal')">
+                                    <i class="fas fa-plus"></i> Tambah Soal
+                                </button>
+                                <button class="action-btn" onclick="showSection('users')">
+                                    <i class="fas fa-user-plus"></i> Tambah Admin
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Status -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-server"></i> Status Sistem</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="status-list">
+                                <div class="status-item">
+                                    <span>Server Uptime</span>
+                                    <span class="status-good">99.8%</span>
+                                </div>
+                                <div class="status-item">
+                                    <span>Database</span>
+                                    <span class="status-good">Online</span>
+                                </div>
+                                <div class="status-item">
+                                    <span>Pengguna Online</span>
+                                    <span>142</span>
+                                </div>
+                                <div class="status-item">
+                                    <span>Penyimpanan</span>
+                                    <span>65%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kelola Lomba Section -->
+            <section id="lomba-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-trophy"></i> Kelola Lomba</h2>
+                    <button class="btn-primary" onclick="openModal('add-lomba')">
+                        <i class="fas fa-plus"></i> Tambah Lomba Baru
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama Lomba</th>
+                                <th>Bidang</th>
+                                <th>Tingkat</th>
+                                <th>Status</th>
+                                <th>Pendaftaran</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lomba-table-body">
+                            <!-- Data will be loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Kelola Materi Section -->
+            <section id="materi-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-book"></i> Kelola Materi</h2>
+                    <button class="btn-primary" onclick="openModal('add-materi')">
+                        <i class="fas fa-plus"></i> Tambah Materi Baru
+                    </button>
+                </div>
+
+                <div class="filter-bar">
+                    <select class="filter-select" onchange="filterMateri()">
+                        <option value="all">Semua Mata Pelajaran</option>
+                        <option value="matematika">Matematika</option>
+                        <option value="fisika">Fisika</option>
+                        <option value="kimia">Kimia</option>
+                        <option value="biologi">Biologi</option>
+                    </select>
+                    
+                    <select class="filter-select" onchange="filterMateri()">
+                        <option value="all">Semua Tingkat</option>
+                        <option value="smp">SMP</option>
+                        <option value="sma">SMA</option>
+                        <option value="kuliah">Kuliah</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Judul Materi</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Tingkat</th>
+                                <th>Sumber</th>
+                                <th>Tanggal</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="materi-table-body">
+                            <!-- Data will be loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Kelola Soal Section -->
+            <section id="soal-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-question-circle"></i> Kelola Soal</h2>
+                    <button class="btn-primary" onclick="openModal('add-soal')">
+                        <i class="fas fa-plus"></i> Tambah Soal Baru
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Pertanyaan</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Tingkat</th>
+                                <th>Tingkat Kesulitan</th>
+                                <th>Tanggal</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="soal-table-body">
+                            <!-- Data will be loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Kelola Quiz Section -->
+            <section id="quiz-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-gamepad"></i> Kelola Quiz</h2>
+                    <button class="btn-primary" onclick="openModal('add-quiz')">
+                        <i class="fas fa-plus"></i> Buat Quiz Baru
+                    </button>
+                </div>
+
+                <div class="quiz-grid">
+                    <!-- Quiz cards will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Kelola Forum Section -->
+            <section id="forum-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-comments"></i> Kelola Forum</h2>
+                </div>
+
+                <div class="forum-stats">
+                    <div class="stat-card small">
+                        <div class="stat-info">
+                            <h3>125</h3>
+                            <p>Diskusi Aktif</p>
+                        </div>
+                    </div>
+                    <div class="stat-card small">
+                        <div class="stat-info">
+                            <h3>850</h3>
+                            <p>Total Balasan</p>
+                        </div>
+                    </div>
+                    <div class="stat-card small">
+                        <div class="stat-info">
+                            <h3>42</h3>
+                            <p>Pengguna Online</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Judul Diskusi</th>
+                                <th>Pembuat</th>
+                                <th>Balasan</th>
+                                <th>Dilihat</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="forum-table-body">
+                            <!-- Data will be loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Kelola Pengguna Section -->
+            <section id="users-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i> Kelola Pengguna</h2>
+                    <button class="btn-primary" onclick="openModal('add-user')">
+                        <i class="fas fa-user-plus"></i> Tambah Pengguna
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Bergabung</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body">
+                            <!-- Data will be loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Pengaturan Section -->
+            <section id="settings-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-cog"></i> Pengaturan Sistem</h2>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3><i class="fas fa-globe"></i> Umum</h3>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Nama Website</label>
+                                <input type="text" value="Ruang Prestasi">
+                            </div>
+                            <div class="form-group">
+                                <label>Deskripsi Website</label>
+                                <textarea>Platform pembelajaran dan kompetisi akademik terkemuka di Indonesia.</textarea>
+                            </div>
+                            <button class="btn-primary">Simpan Perubahan</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="fas fa-envelope"></i> Email</h3>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Email Admin</label>
+                                <input type="email" value="admin@ruangprestasi.id">
+                            </div>
+                            <div class="form-group">
+                                <label>Notifikasi Email</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="email-notif" checked>
+                                    <label for="email-notif"></label>
+                                </div>
+                            </div>
+                            <button class="btn-primary">Simpan Perubahan</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="fas fa-shield-alt"></i> Keamanan</h3>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Ganti Password Admin</label>
+                                <input type="password" placeholder="Password baru">
+                            </div>
+                            <div class="form-group">
+                                <label>Konfirmasi Password</label>
+                                <input type="password" placeholder="Konfirmasi password">
+                            </div>
+                            <button class="btn-primary">Ganti Password</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Modal Tambah Lomba -->
+    <div id="add-lomba-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-trophy"></i> Tambah Lomba Baru</h3>
+                <button class="close-modal" onclick="closeModal('add-lomba')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-lomba">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lomba *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Bidang *</label>
+                            <select required>
+                                <option value="">Pilih Bidang</option>
+                                <option value="matematika">Matematika</option>
+                                <option value="fisika">Fisika</option>
+                                <option value="kimia">Kimia</option>
+                                <option value="biologi">Biologi</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tingkat *</label>
+                            <select required>
+                                <option value="">Pilih Tingkat</option>
+                                <option value="smp">SMP</option>
+                                <option value="sma">SMA</option>
+                                <option value="kuliah">Kuliah</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Status *</label>
+                            <select required>
+                                <option value="buka">Pendaftaran Dibuka</option>
+                                <option value="akan_datang">Akan Datang</option>
+                                <option value="selesai">Selesai</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Penyelenggara *</label>
+                        <input type="text" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tanggal Pendaftaran *</label>
+                            <input type="text" required placeholder="Januari - Maret 2026">
+                        </div>
+                        <div class="form-group">
+                            <label>Batas Pendaftaran *</label>
+                            <input type="date" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Deskripsi *</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Link Pendaftaran *</label>
+                        <input type="url" required placeholder="https://">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Hadiah</label>
+                        <input type="text" placeholder="Medali, sertifikat, beasiswa">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('add-lomba')">Batal</button>
+                <button class="btn-primary" onclick="saveLomba()">Simpan Lomba</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Materi -->
+    <div id="add-materi-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-book"></i> Tambah Materi Baru</h3>
+                <button class="close-modal" onclick="closeModal('add-materi')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-materi">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Judul Materi *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mata Pelajaran *</label>
+                            <select required>
+                                <option value="">Pilih Mata Pelajaran</option>
+                                <option value="matematika">Matematika</option>
+                                <option value="fisika">Fisika</option>
+                                <option value="kimia">Kimia</option>
+                                <option value="biologi">Biologi</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tingkat *</label>
+                            <select required>
+                                <option value="">Pilih Tingkat</option>
+                                <option value="smp">SMP</option>
+                                <option value="sma">SMA</option>
+                                <option value="kuliah">Kuliah</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Jenis Materi</label>
+                            <select>
+                                <option value="pdf">PDF</option>
+                                <option value="video">Video</option>
+                                <option value="interaktif">Interaktif</option>
+                                <option value="quiz">Quiz</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>URL Materi *</label>
+                        <input type="url" required placeholder="https://">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Deskripsi *</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Topik</label>
+                        <input type="text" placeholder="Pisahkan dengan koma">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('add-materi')">Batal</button>
+                <button class="btn-primary" onclick="saveMateri()">Simpan Materi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Soal -->
+    <div id="add-soal-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-question-circle"></i> Tambah Soal Baru</h3>
+                <button class="close-modal" onclick="closeModal('add-soal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-soal">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Mata Pelajaran *</label>
+                            <select required>
+                                <option value="">Pilih Mata Pelajaran</option>
+                                <option value="matematika">Matematika</option>
+                                <option value="fisika">Fisika</option>
+                                <option value="kimia">Kimia</option>
+                                <option value="biologi">Biologi</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tingkat *</label>
+                            <select required>
+                                <option value="">Pilih Tingkat</option>
+                                <option value="smp">SMP</option>
+                                <option value="sma">SMA</option>
+                                <option value="kuliah">Kuliah</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tingkat Kesulitan *</label>
+                            <select required>
+                                <option value="easy">Mudah</option>
+                                <option value="medium">Sedang</option>
+                                <option value="hard">Sulit</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Poin</label>
+                            <input type="number" value="10" min="1" max="100">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Pertanyaan *</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Opsi Jawaban *</label>
+                        <div class="option-group">
+                            <input type="text" placeholder="Opsi A" required>
+                            <input type="text" placeholder="Opsi B" required>
+                            <input type="text" placeholder="Opsi C" required>
+                            <input type="text" placeholder="Opsi D" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Jawaban Benar *</label>
+                        <select required>
+                            <option value="">Pilih Jawaban</option>
+                            <option value="0">Opsi A</option>
+                            <option value="1">Opsi B</option>
+                            <option value="2">Opsi C</option>
+                            <option value="3">Opsi D</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Pembahasan</label>
+                        <textarea rows="3" placeholder="Penjelasan jawaban"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('add-soal')">Batal</button>
+                <button class="btn-primary" onclick="saveSoal()">Simpan Soal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

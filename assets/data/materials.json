@@ -1,0 +1,103 @@
+{
+    "metadata": {
+        "total_materials": 156,
+        "last_updated": "2025-12-05",
+        "sources": ["kemdikbud", "universitas", "platform_edukasi", "blog_pendidikan"]
+    },
+    "categories": {
+        "matematika": {
+            "smp": {
+                "count": 15,
+                "topics": ["aljabar", "geometri", "aritmatika", "statistika", "peluang"],
+                "format": ["pdf", "video", "interaktif", "quiz"]
+            },
+            "sma": {
+                "count": 28,
+                "topics": ["kalkulus", "trigonometri", "matriks", "vektor", "logika_matematika"],
+                "format": ["pdf", "video", "latihan_soal", "simulasi"]
+            },
+            "kuliah": {
+                "count": 42,
+                "topics": ["aljabar_linear", "analisis_real", "statistika_lanjut", "pemrograman_matematika"],
+                "format": ["textbook", "lecture_notes", "research_paper", "video_lecture"]
+            }
+        },
+        "fisika": {
+            "smp": {
+                "count": 12,
+                "topics": ["gerak", "kalor", "cahaya", "listrik", "magnet"],
+                "format": ["pdf", "video", "lab_virtual", "animasi"]
+            },
+            "sma": {
+                "count": 24,
+                "topics": ["mekanika", "termodinamika", "gelombang", "fisika_modern", "listrik_magnet"],
+                "format": ["pdf", "video", "simulasi", "lab_virtual"]
+            },
+            "kuliah": {
+                "count": 35,
+                "topics": ["mekanika_kuantum", "relativitas", "fisika_statistik", "elektrodinamika"],
+                "format": ["textbook", "research_paper", "video_lecture", "simulation"]
+            }
+        },
+        "kimia": {
+            "smp": {
+                "count": 18,
+                "topics": ["zat_dan_perubahan", "unsur_dan_senyawa", "larutan", "kimia_dalam_kehidupan"],
+                "format": ["pdf", "video", "interaktif", "quiz"]
+            },
+            "sma": {
+                "count": 26,
+                "topics": ["stoikiometri", "termokimia", "kesetimbangan", "kimia_organik", "elektrokimia"],
+                "format": ["pdf", "video", "latihan_soal", "simulasi_reaksi"]
+            },
+            "kuliah": {
+                "count": 38,
+                "topics": ["kimia_analitik", "kimia_fisik", "kimia_anorganik", "biokimia", "kimia_material"],
+                "format": ["textbook", "journal_article", "lab_manual", "video_demonstration"]
+            }
+        },
+        "biologi": {
+            "smp": {
+                "count": 14,
+                "topics": ["sel", "sistem_organ", "ekosistem", "genetika_dasar", "evolusi"],
+                "format": ["pdf", "video", "interaktif", "virtual_microscope"]
+            },
+            "sma": {
+                "count": 22,
+                "topics": ["biologi_sel", "metabolisme", "genetika", "bioteknologi", "ekologi"],
+                "format": ["pdf", "video", "animasi", "virtual_lab"]
+            },
+            "kuliah": {
+                "count": 32,
+                "topics": ["molekular_biology", "genomics", "bioinformatics", "microbiology", "neuroscience"],
+                "format": ["textbook", "research_paper", "database", "simulation"]
+            }
+        }
+    },
+    "recommended_paths": {
+        "smp_preparation": {
+            "matematika": ["buku.kemdikbud.go.id", "ajarhitung.com"],
+            "fisika": ["fisikastudycenter.com/fisika-smp/"],
+            "kimia": ["wirahadie.com/materi-ipa-smp/"],
+            "biologi": ["sumberbelajar.belajar.kemdikbud.go.id"]
+        },
+        "sma_olympiad": {
+            "matematika": ["mathcyber1997.com", "m4th-lab.net"],
+            "fisika": ["materi78.wordpress.com/fisika/"],
+            "kimia": ["bisakimia.com"],
+            "biologi": ["biologijk.com", "generasibiologi.com"]
+        },
+        "university_level": {
+            "matematika": ["tutorial.math.lamar.edu", "ocw.mit.edu/search/?t=Mathematics"],
+            "fisika": ["hyperphysics.phy-astr.gsu.edu", "feynmanlectures.caltech.edu"],
+            "kimia": ["openstax.org/details/books/chemistry-2e"],
+            "biologi": ["bio.libretexts.org", "learn.genetics.utah.edu"]
+        }
+    },
+    "update_schedule": {
+        "daily": ["news", "announcements", "forum_posts"],
+        "weekly": ["new_materials", "quiz_updates"],
+        "monthly": ["competition_updates", "feature_releases"],
+        "quarterly": ["curriculum_review", "resource_evaluation"]
+    }
+}

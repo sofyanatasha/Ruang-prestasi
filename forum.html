@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Diskusi - Ruang Prestasi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <h1><i class="fas fa-trophy"></i> Ruang Prestasi</h1>
+        </div>
+        <button class="mobile-menu" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="lomba.html"><i class="fas fa-flag"></i> Lomba</a></li>
+            <li><a href="materi.html"><i class="fas fa-book"></i> Materi</a></li>
+            <li><a href="latihan.html"><i class="fas fa-pen"></i> Latihan</a></li>
+            <li><a href="quiz.html"><i class="fas fa-question-circle"></i> Quiz</a></li>
+            <li><a href="forum.html" class="active"><i class="fas fa-comments"></i> Forum</a></li>
+        </ul>
+    </nav>
+
+    <!-- Forum Header -->
+    <section class="page-header">
+        <h1><i class="fas fa-comments"></i> Forum Diskusi</h1>
+        <p>Diskusikan masalah, tanyakan soal, dan berbagi pengetahuan dengan komunitas</p>
+    </section>
+
+    <div class="container forum-container">
+        <div class="forum-layout">
+            <!-- Sidebar Kategori -->
+            <aside class="forum-sidebar">
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-filter"></i> Filter</h3>
+                    <select id="subject-filter" class="filter-select">
+                        <option value="all">Semua Mata Pelajaran</option>
+                        <option value="matematika">Matematika</option>
+                        <option value="fisika">Fisika</option>
+                        <option value="kimia">Kimia</option>
+                        <option value="biologi">Biologi</option>
+                    </select>
+                    
+                    <select id="level-filter" class="filter-select">
+                        <option value="all">Semua Tingkat</option>
+                        <option value="smp">SMP</option>
+                        <option value="sma">SMA</option>
+                        <option value="kuliah">Kuliah</option>
+                    </select>
+                    
+                    <button onclick="filterForum()" class="btn-primary">
+                        <i class="fas fa-filter"></i> Filter Diskusi
+                    </button>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-fire"></i> Trending Topics</h3>
+                    <div class="trending-list">
+                        <a href="#" class="trending-item">
+                            <span class="trending-badge">Hot</span>
+                            Cara cepat integral
+                        </a>
+                        <a href="#" class="trending-item">
+                            <span class="trending-badge">New</span>
+                            Persiapan OSN 2026
+                        </a>
+                        <a href="#" class="trending-item">
+                            <span class="trending-badge">25 replies</span>
+                            Soal fisika sulit
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-users"></i> Top Contributors</h3>
+                    <div class="contributors-list">
+                        <div class="contributor">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=3498db&color=fff" alt="Contributor">
+                            <div>
+                                <strong>Budi_Santoso</strong>
+                                <small>152 poin</small>
+                            </div>
+                        </div>
+                        <div class="contributor">
+                            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=2ecc71&color=fff" alt="Contributor">
+                            <div>
+                                <strong>Sari_Matematika</strong>
+                                <small>128 poin</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Forum Content -->
+            <main class="forum-main">
+                <!-- Create New Post -->
+                <div class="create-post">
+                    <h3><i class="fas fa-edit"></i> Buat Diskusi Baru</h3>
+                    <div class="post-form">
+                        <input type="text" id="post-title" placeholder="Judul diskusi..." class="form-input">
+                        <select id="post-subject" class="form-select">
+                            <option value="">Pilih Mata Pelajaran</option>
+                            <option value="matematika">Matematika</option>
+                            <option value="fisika">Fisika</option>
+                            <option value="kimia">Kimia</option>
+                            <option value="biologi">Biologi</option>
+                        </select>
+                        <textarea id="post-content" placeholder="Apa yang ingin Anda diskusikan?" rows="4" class="form-textarea"></textarea>
+                        <div class="form-actions">
+                            <button onclick="createPost()" class="btn-primary">
+                                <i class="fas fa-paper-plane"></i> Posting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discussion List -->
+                <div class="discussions-list">
+                    <div class="discussion-header">
+                        <h3><i class="fas fa-comments"></i> Diskusi Terbaru</h3>
+                        <div class="sort-options">
+                            <select id="sort-by" class="form-select" onchange="sortDiscussions()">
+                                <option value="newest">Terbaru</option>
+                                <option value="popular">Populer</option>
+                                <option value="unanswered">Belum Dijawab</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Discussion Items will be loaded here -->
+                    <div id="discussions-container">
+                        <!-- Content loaded by JavaScript -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-trophy"></i> Ruang Prestasi</h3>
+                <p>Platform pembelajaran dan kompetisi akademik terkemuka di Indonesia.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-envelope"></i> info@ruangprestasi.id</p>
+                <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+            </div>
+            <div class="footer-section">
+                <h3>Ikuti Kami</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ruang Prestasi. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="forum-data.js"></script>
+    <script>
+        // Forum functionality
+        function createPost() {
+            const title = document.getElementById('post-title').value;
+            const subject = document.getElementById('post-subject').value;
+            const content = document.getElementById('post-content').value;
+            
+            if (!title || !subject || !content) {
+                alert('Harap isi semua field!');
+                return;
+            }
+            
+            // In real app, this would send to server
+            const newPost = {
+                id: Date.now(),
+                title: title,
+                subject: subject,
+                content: content,
+                author: "Anda",
+                timestamp: new Date().toLocaleString(),
+                replies: 0,
+                views: 0
+            };
+            
+            // Add to discussions
+            forumData.discussions.unshift(newPost);
+            
+            // Clear form
+            document.getElementById('post-title').value = '';
+            document.getElementById('post-subject').value = '';
+            document.getElementById('post-content').value = '';
+            
+            // Refresh display
+            displayDiscussions();
+            
+            alert('Diskusi berhasil diposting!');
+        }
+        
+        function filterForum() {
+            displayDiscussions();
+        }
+        
+        function sortDiscussions() {
+            displayDiscussions();
+        }
+        
+        // Initial load
+        document.addEventListener('DOMContentLoaded', function() {
+            displayDiscussions();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Prestasi - Wujudkan Prestasi Akademikmu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <h1><i class="fas fa-trophy"></i> Ruang Prestasi</h1>
+        </div>
+        <button class="mobile-menu" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="lomba.html"><i class="fas fa-flag"></i> Lomba</a></li>
+            <li><a href="materi.html"><i class="fas fa-book"></i> Materi</a></li>
+            <li><a href="latihan.html"><i class="fas fa-pen"></i> Latihan</a></li>
+            <li><a href="quiz.html"><i class="fas fa-question-circle"></i> Quiz</a></li>
+            <li><a href="forum.html"><i class="fas fa-comments"></i> Forum</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate__animated animate__fadeIn">
+            <h1>Wujudkan Prestasi Akademikmu!</h1>
+            <p class="hero-subtitle">Platform lengkap untuk persiapan kompetisi dan pembelajaran Matematika, Fisika, Kimia, dan Biologi</p>
+            <div class="hero-buttons">
+                <a href="lomba.html" class="btn-hero">
+                    <i class="fas fa-trophy"></i> Lihat Lomba 2026
+                </a>
+                <a href="quiz.html" class="btn-hero secondary">
+                    <i class="fas fa-play-circle"></i> Mulai Quiz
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-stats animate__animated animate__fadeInUp">
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Materi Belajar</p>
+            </div>
+            <div class="stat">
+                <h3>100+</h3>
+                <p>Lomba 2026</p>
+            </div>
+            <div class="stat">
+                <h3>1.250+</h3>
+                <p>Soal Latihan</p>
+            </div>
+            <div class="stat">
+                <h3>5.000+</h3>
+                <p>Anggota Forum</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="container">
+        <h2 class="section-title">Akses Cepat</h2>
+        <div class="quick-access">
+            <div class="card" onclick="location.href='lomba.html'">
+                <div class="card-icon" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Lomba & Kompetisi 2026</h3>
+                <p>Daftar kompetisi Matematika, Fisika, Kimia, Biologi untuk SMP, SMA, dan Kuliah</p>
+                <div class="card-footer">
+                    <span class="card-badge">Terbaru</span>
+                    <a href="lomba.html" class="card-link">Lihat Semua →</a>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='materi.html'">
+                <div class="card-icon" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Materi Pembelajaran</h3>
+                <p>Sumber belajar terlengkap dari berbagai tingkatan pendidikan</p>
+                <div class="card-footer">
+                    <span class="card-badge">Lengkap</span>
+                    <a href="materi.html" class="card-link">Pelajari →</a>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='latihan.html'">
+                <div class="card-icon" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">
+                    <i class="fas fa-pen"></i>
+                </div>
+                <h3>Bank Soal & Latihan</h3>
+                <p>Latihan soal dengan pembahasan lengkap untuk semua mata pelajaran</p>
+                <div class="card-footer">
+                    <span class="card-badge">Update</span>
+                    <a href="latihan.html" class="card-link">Kerjakan →</a>
+                </div>
+            </div>
+
+            <div class="card" onclick="location.href='quiz.html'">
+                <div class="card-icon" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h3>Quiz Interaktif</h3>
+                <p>Uji kemampuan dengan quiz interaktif dan timer</p>
+                <div class="card-footer">
+                    <span class="card-badge">Seru</span>
+                    <a href="quiz.html" class="card-link">Mulai →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Preview -->
+    <section class="container">
+        <h2 class="section-title">Mata Pelajaran</h2>
+        <div class="subjects-grid">
+            <div class="subject-card" style="border-top: 4px solid #e74c3c;">
+                <div class="subject-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Matematika</h3>
+                <p>SMP, SMA, Kuliah</p>
+                <div class="subject-stats">
+                    <span><i class="fas fa-book"></i> 85 Materi</span>
+                    <span><i class="fas fa-question"></i> 400 Soal</span>
+                </div>
+                <div class="subject-links">
+                    <a href="materi.html?subject=matematika" class="subject-link">Materi</a>
+                    <a href="latihan.html?subject=matematika" class="subject-link">Soal</a>
+                    <a href="lomba.html?subject=matematika" class="subject-link">Lomba</a>
+                </div>
+            </div>
+
+            <div class="subject-card" style="border-top: 4px solid #3498db;">
+                <div class="subject-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h3>Fisika</h3>
+                <p>SMP, SMA, Kuliah</p>
+                <div class="subject-stats">
+                    <span><i class="fas fa-book"></i> 71 Materi</span>
+                    <span><i class="fas fa-question"></i> 350 Soal</span>
+                </div>
+                <div class="subject-links">
+                    <a href="materi.html?subject=fisika" class="subject-link">Materi</a>
+                    <a href="latihan.html?subject=fisika" class="subject-link">Soal</a>
+                    <a href="lomba.html?subject=fisika" class="subject-link">Lomba</a>
+                </div>
+            </div>
+
+            <div class="subject-card" style="border-top: 4px solid #2ecc71;">
+                <div class="subject-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3>Kimia</h3>
+                <p>SMP, SMA, Kuliah</p>
+                <div class="subject-stats">
+                    <span><i class="fas fa-book"></i> 82 Materi</span>
+                    <span><i class="fas fa-question"></i> 320 Soal</span>
+                </div>
+                <div class="subject-links">
+                    <a href="materi.html?subject=kimia" class="subject-link">Materi</a>
+                    <a href="latihan.html?subject=kimia" class="subject-link">Soal</a>
+                    <a href="lomba.html?subject=kimia" class="subject-link">Lomba</a>
+                </div>
+            </div>
+
+            <div class="subject-card" style="border-top: 4px solid #9b59b6;">
+                <div class="subject-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <h3>Biologi</h3>
+                <p>SMP, SMA, Kuliah</p>
+                <div class="subject-stats">
+                    <span><i class="fas fa-book"></i> 68 Materi</span>
+                    <span><i class="fas fa-question"></i> 280 Soal</span>
+                </div>
+                <div class="subject-links">
+                    <a href="materi.html?subject=biologi" class="subject-link">Materi</a>
+                    <a href="latihan.html?subject=biologi" class="subject-link">Soal</a>
+                    <a href="lomba.html?subject=biologi" class="subject-link">Lomba</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Competitions -->
+    <section class="container featured-section">
+        <div class="section-header">
+            <h2 class="section-title">Lomba Terpopuler</h2>
+            <a href="lomba.html" class="view-all">Lihat Semua →</a>
+        </div>
+        <div class="competitions-grid">
+            <div class="competition-card">
+                <div class="competition-badge" style="background: #e74c3c;">Matematika</div>
+                <h3>Olimpiade Sains Nasional (OSN) 2026</h3>
+                <p class="competition-desc">Kompetisi matematika tingkat nasional untuk siswa SMP</p>
+                <div class="competition-info">
+                    <span><i class="fas fa-calendar"></i> Jan - Mar 2026</span>
+                    <span><i class="fas fa-graduation-cap"></i> SMP</span>
+                </div>
+                <a href="lomba.html" class="btn-competition">Detail & Daftar</a>
+            </div>
+
+            <div class="competition-card">
+                <div class="competition-badge" style="background: #3498db;">Fisika</div>
+                <h3>Physics Bowl 2026</h3>
+                <p class="competition-desc">Kompetisi fisika internasional untuk siswa SMA</p>
+                <div class="competition-info">
+                    <span><i class="fas fa-calendar"></i> Feb - Apr 2026</span>
+                    <span><i class="fas fa-graduation-cap"></i> SMA</span>
+                </div>
+                <a href="lomba.html" class="btn-competition">Detail & Daftar</a>
+            </div>
+
+            <div class="competition-card">
+                <div class="competition-badge" style="background: #2ecc71;">Kimia</div>
+                <h3>Olimpiade Kimia Indonesia 2026</h3>
+                <p class="competition-desc">Kompetisi kimia nasional untuk siswa SMA</p>
+                <div class="competition-info">
+                    <span><i class="fas fa-calendar"></i> Mar - Mei 2026</span>
+                    <span><i class="fas fa-graduation-cap"></i> SMA</span>
+                </div>
+                <a href="lomba.html" class="btn-competition">Detail & Daftar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Kata Mereka</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Berlatih soal di Ruang Prestasi membantu saya memenangkan OSN Matematika 2025!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Rina+Susanti&background=e74c3c&color=fff" alt="Rina">
+                        <div>
+                            <h4>Rina Susanti</h4>
+                            <p>Juara 1 OSN Matematika 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Materi yang lengkap dan forum diskusi sangat membantu persiapan UTBK saya."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=3498db&color=fff" alt="Budi">
+                        <div>
+                            <h4>Budi Santoso</h4>
+                            <p>Mahasiswa Teknik ITB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Platform ini membantu siswa saya menemukan lomba yang sesuai dengan kemampuan mereka."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Dr+Sari&background=2ecc71&color=fff" alt="Sari">
+                        <div>
+                            <h4>Dr. Sari Wijaya</h4>
+                            <p>Guru Fisika SMA Negeri 1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Siap Menjadi Juara?</h2>
+                <p>Bergabung dengan ribuan siswa lainnya dan raih prestasi tertinggimu!</p>
+                <div class="cta-buttons">
+                    <a href="lomba.html" class="btn-cta primary">
+                        <i class="fas fa-rocket"></i> Daftar Lomba Sekarang
+                    </a>
+                    <a href="materi.html" class="btn-cta secondary">
+                        <i class="fas fa-book-open"></i> Mulai Belajar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-trophy"></i> Ruang Prestasi</h3>
+                <p>Platform pembelajaran dan kompetisi akademik terkemuka di Indonesia.</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-envelope"></i> info@ruangprestasi.id</a>
+                    <a href="#"><i class="fas fa-phone"></i> (021) 1234-5678</a>
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Mata Pelajaran</h3>
+                <div class="footer-links">
+                    <a href="materi.html?subject=matematika"><i class="fas fa-calculator"></i> Matematika</a>
+                    <a href="materi.html?subject=fisika"><i class="fas fa-atom"></i> Fisika</a>
+                    <a href="materi.html?subject=kimia"><i class="fas fa-flask"></i> Kimia</a>
+                    <a href="materi.html?subject=biologi"><i class="fas fa-dna"></i> Biologi</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Tautan Cepat</h3>
+                <div class="footer-links">
+                    <a href="lomba.html"><i class="fas fa-trophy"></i> Lomba 2026</a>
+                    <a href="materi.html"><i class="fas fa-book"></i> Materi</a>
+                    <a href="latihan.html"><i class="fas fa-pen"></i> Latihan</a>
+                    <a href="forum.html"><i class="fas fa-comments"></i> Forum</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ikuti Kami</h3>
+                <div class="social-links">
+                    <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="newsletter">
+                    <p>Berlangganan newsletter</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Email Anda" class="newsletter-input">
+                        <button class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ruang Prestasi. Hak Cipta Dilindungi. | <a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections for animation
+            document.querySelectorAll('.card, .subject-card, .competition-card, .testimonial-card').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Newsletter form
+            document.querySelector('.newsletter-btn').addEventListener('click', function() {
+                const email = document.querySelector('.newsletter-input').value;
+                if (email && email.includes('@')) {
+                    alert('Terima kasih! Anda telah berlangganan newsletter kami.');
+                    document.querySelector('.newsletter-input').value = '';
+                } else {
+                    alert('Harap masukkan email yang valid.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

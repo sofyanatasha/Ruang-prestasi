@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interaktif - Ruang Prestasi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for quiz page */
+        .quiz-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 992px) {
+            .quiz-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .quiz-container {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+        
+        .quiz-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .quiz-categories {
+            text-align: center;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .quiz-category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .quiz-category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .category-info {
+            flex: 1;
+        }
+        
+        .category-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .category-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+        
+        .difficulty {
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .difficulty.easy {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .difficulty.medium {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .difficulty.hard {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        /* Quiz Interface */
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f8f9fa;
+        }
+        
+        .quiz-info {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .quiz-timer {
+            background: #e74c3c;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quiz-progress {
+            background: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-number {
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .question-points {
+            background: #f39c12;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .question-text h3 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .question-options {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .option:hover {
+            background: #e8f4fc;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #3498db;
+            border-color: #2980b9;
+            color: white;
+        }
+        
+        .option-letter {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .option.selected .option-letter {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .question-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .btn-nav {
+            padding: 0.8rem 1.5rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-nav:hover {
+            background: #2980b9;
+        }
+        
+        .btn-nav.next {
+            background: #2ecc71;
+        }
+        
+        .btn-nav.next:hover {
+            background: #27ae60;
+        }
+        
+        .btn-nav.finish {
+            background: #e74c3c;
+        }
+        
+        .btn-nav.finish:hover {
+            background: #c0392b;
+        }
+        
+        /* Results */
+        .quiz-results {
+            text-align: center;
+        }
+        
+        .results-header {
+            margin-bottom: 2rem;
+        }
+        
+        .results-header h2 {
+            color: #2c3e50;
+            margin: 1rem 0 0.5rem 0;
+        }
+        
+        .quiz-name {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .score-display {
+            margin: 2rem 0;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .score-percentage {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .results-details {
+            max-width: 400px;
+            margin: 2rem auto;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-item.total {
+            border-top: 2px solid #3498db;
+            border-bottom: none;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .results-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .btn-action {
+            padding: 0.8rem 2rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-action:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-action.secondary {
+            background: #95a5a6;
+        }
+        
+        .btn-action.secondary:hover {
+            background: #7f8c8d;
+        }
+        
+        /* Leaderboard */
+        .leaderboard {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .leaderboard h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .leaderboard-list {
+            margin-top: 1rem;
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+        
+        .leaderboard-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .leaderboard-item.top-three {
+            background: linear-gradient(135deg, #f9f3e9, #f5e6d3);
+        }
+        
+        .rank {
+            width: 30px;
+            height: 30px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .leaderboard-item.top-three .rank {
+            background: #f39c12;
+        }
+        
+        .user-info {
+            flex: 1;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .user-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* User Stats */
+        .user-stats .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 0.3rem;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* Achievements */
+        .achievements {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .achievement-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            opacity: 0.5;
+        }
+        
+        .achievement-item.unlocked {
+            opacity: 1;
+            background: linear-gradient(135deg, #e8f4fc, #d4eaf7);
+        }
+        
+        .achievement-icon {
+            width: 40px;
+            height: 40px;
+            background: #f39c12;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .achievement-item.unlocked .achievement-icon {
+            background: #f39c12;
+        }
+        
+        .achievement-info h4 {
+            margin: 0 0 0.2rem 0;
+            color: #2c3e50;
+        }
+        
+        .achievement-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <h1><i class="fas fa-trophy"></i> Ruang Prestasi</h1>
+        </div>
+        <button class="mobile-menu" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="lomba.html"><i class="fas fa-flag"></i> Lomba</a></li>
+            <li><a href="materi.html"><i class="fas fa-book"></i> Materi</a></li>
+            <li><a href="latihan.html"><i class="fas fa-pen"></i> Latihan</a></li>
+            <li><a href="quiz.html" class="active"><i class="fas fa-question-circle"></i> Quiz</a></li>
+            <li><a href="forum.html"><i class="fas fa-comments"></i> Forum</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1><i class="fas fa-question-circle"></i> Quiz Interaktif</h1>
+        <p>Uji pengetahuan dan kemampuan Anda dengan quiz menarik</p>
+    </section>
+
+    <div class="container">
+        <div class="quiz-layout">
+            <!-- Main Quiz Area -->
+            <main>
+                <div id="quiz-container" class="quiz-container">
+                    <!-- Content will be loaded by quiz-data.js -->
+                </div>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="quiz-sidebar">
+                <!-- Timer & Progress (shown during quiz) -->
+                <div id="quiz-sidebar-content">
+                    <!-- Will be populated dynamically -->
+                </div>
+
+                <!-- Leaderboard -->
+                <div id="leaderboard-container"></div>
+
+                <!-- User Stats -->
+                <div id="user-stats-container"></div>
+
+                <!-- Achievements -->
+                <div class="achievements">
+                    <h3><i class="fas fa-medal"></i> Pencapaian</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item unlocked">
+                            <div class="achievement-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Pemula</h4>
+                                <p>Selesaikan quiz pertama</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Sempurna</h4>
+                                <p>Dapatkan nilai sempurna</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Konsisten</h4>
+                                <p>5 quiz berturut-turut</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Quiz Instructions -->
+        <div class="instructions" style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+            <h3><i class="fas fa-info-circle"></i> Cara Bermain Quiz</h3>
+            <div class="instruction-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                <div class="instruction-item">
+                    <div class="instruction-icon" style="background: #3498db; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <h4>Pilih Quiz</h4>
+                    <p>Pilih quiz berdasarkan minat dan tingkat kesulitan</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon" style="background: #2ecc71; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Perhatikan Waktu</h4>
+                    <p>Setiap quiz memiliki batas waktu tertentu</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon" style="background: #e74c3c; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Dapatkan Poin</h4>
+                    <p>Jawab benar untuk mendapatkan poin dan bonus</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon" style="background: #9b59b6; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4>Naik Peringkat</h4>
+                    <p>Kumpulkan poin untuk naik di papan peringkat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-trophy"></i> Ruang Prestasi</h3>
+                <p>Platform pembelajaran dan kompetisi akademik terkemuka di Indonesia.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-envelope"></i> info@ruangprestasi.id</p>
+                <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+            </div>
+            <div class="footer-section">
+                <h3>Ikuti Kami</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ruang Prestasi. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="quiz-data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize quiz functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to category cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements after they're loaded
+            setTimeout(() => {
+                document.querySelectorAll('.quiz-category-card, .instruction-item').forEach(el => {
+                    observer.observe(el);
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

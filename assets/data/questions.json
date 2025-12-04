@@ -1,0 +1,302 @@
+{
+    "metadata": {
+        "total_questions": 1250,
+        "subjects_covered": ["matematika", "fisika", "kimia", "biologi"],
+        "levels": ["smp", "sma", "kuliah"],
+        "question_types": ["pilihan_ganda", "essay", "true_false", "matching", "numerical"]
+    },
+    "quiz_categories": [
+        {
+            "id": "math_smp_basic",
+            "name": "Matematika SMP - Dasar",
+            "subject": "matematika",
+            "level": "smp",
+            "description": "Konsep dasar matematika untuk SMP",
+            "question_count": 50,
+            "time_limit": 30,
+            "difficulty": "easy"
+        },
+        {
+            "id": "physics_sma_mechanics",
+            "name": "Fisika SMA - Mekanika",
+            "subject": "fisika",
+            "level": "sma",
+            "description": "Soal mekanika klasik untuk SMA",
+            "question_count": 40,
+            "time_limit": 45,
+            "difficulty": "medium"
+        },
+        {
+            "id": "chemistry_sma_organic",
+            "name": "Kimia SMA - Organik",
+            "subject": "kimia",
+            "level": "sma",
+            "description": "Kimia organik dasar untuk SMA",
+            "question_count": 35,
+            "time_limit": 40,
+            "difficulty": "medium"
+        },
+        {
+            "id": "biology_smp_cell",
+            "name": "Biologi SMP - Sel",
+            "subject": "biologi",
+            "level": "smp",
+            "description": "Struktur dan fungsi sel untuk SMP",
+            "question_count": 30,
+            "time_limit": 25,
+            "difficulty": "easy"
+        }
+    ],
+    "sample_questions": [
+        {
+            "id": "math_001",
+            "subject": "matematika",
+            "level": "smp",
+            "category": "aljabar",
+            "question": "Jika 2x + 5 = 15, berapakah nilai x?",
+            "options": ["x = 3", "x = 4", "x = 5", "x = 6"],
+            "correct_answer": 2,
+            "explanation": "2x + 5 = 15 → 2x = 15 - 5 → 2x = 10 → x = 5",
+            "difficulty": "easy",
+            "tags": ["persamaan linear", "aljabar dasar"],
+            "source": "OSN SMP 2024"
+        },
+        {
+            "id": "physics_001",
+            "subject": "fisika",
+            "level": "sma",
+            "category": "kinematika",
+            "question": "Sebuah benda bergerak dengan kecepatan awal 10 m/s dan mengalami percepatan konstan 2 m/s². Berapa kecepatannya setelah 5 detik?",
+            "options": ["15 m/s", "20 m/s", "25 m/s", "30 m/s"],
+            "correct_answer": 1,
+            "explanation": "v = v₀ + at = 10 + (2 × 5) = 20 m/s",
+            "difficulty": "medium",
+            "tags": ["gerak lurus", "percepatan konstan"],
+            "source": "Physics Bowl 2023"
+        },
+        {
+            "id": "chemistry_001",
+            "subject": "kimia",
+            "level": "sma",
+            "category": "stoikiometri",
+            "question": "Berapa gram NaOH yang diperlukan untuk membuat 500 mL larutan NaOH 0.1 M? (Ar Na=23, O=16, H=1)",
+            "options": ["1 gram", "2 gram", "3 gram", "4 gram"],
+            "correct_answer": 1,
+            "explanation": "Massa = M × V × Mr = 0.1 × 0.5 × 40 = 2 gram",
+            "difficulty": "medium",
+            "tags": ["konsentrasi larutan", "stoikiometri"],
+            "source": "OKI 2024"
+        },
+        {
+            "id": "biology_001",
+            "subject": "biologi",
+            "level": "smp",
+            "category": "sel",
+            "question": "Organel sel yang berfungsi sebagai tempat respirasi sel adalah...",
+            "options": ["Ribosom", "Mitokondria", "Lisosom", "Retikulum Endoplasma"],
+            "correct_answer": 1,
+            "explanation": "Mitokondria adalah organel sel yang berfungsi sebagai tempat respirasi seluler untuk menghasilkan energi (ATP).",
+            "difficulty": "easy",
+            "tags": ["organel sel", "respirasi"],
+            "source": "Biology Challenge 2024"
+        },
+        {
+            "id": "math_002",
+            "subject": "matematika",
+            "level": "kuliah",
+            "category": "kalkulus",
+            "question": "Turunan pertama dari f(x) = 3x³ - 2x² + 5x - 7 adalah...",
+            "options": ["9x² - 4x + 5", "9x² + 4x + 5", "6x² - 4x + 5", "6x² + 4x + 5"],
+            "correct_answer": 0,
+            "explanation": "f'(x) = d/dx(3x³) - d/dx(2x²) + d/dx(5x) - d/dx(7) = 9x² - 4x + 5",
+            "difficulty": "easy",
+            "tags": ["turunan", "kalkulus dasar"],
+            "source": "Kalkulus Dasar"
+        }
+    ],
+    "practice_sets": {
+        "daily_challenge": {
+            "description": "5 soal harian dari berbagai mata pelajaran",
+            "questions_per_day": 5,
+            "duration": "15 menit",
+            "reward": "poin harian"
+        },
+        "weekly_test": {
+            "description": "Tes mingguan dengan 20 soal",
+            "questions_per_week": 20,
+            "duration": "60 menit",
+            "reward": "sertifikat mingguan"
+        },
+        "competition_simulation": {
+            "description": "Simulasi kompetisi lengkap",
+            "questions_per_simulation": 50,
+            "duration": "120 menit",
+            "reward": "peringkat dan analisis"
+        }
+    },
+    "question_banks": {
+        "matematika": {
+            "smp": [
+                {
+                    "source": "defantri.com/bank-soal-smp/",
+                    "type": "pembahasan_lengkap",
+                    "count": 500,
+                    "topics": ["aljabar", "geometri", "statistika"]
+                },
+                {
+                    "source": "juraganles.com/matematika-smp",
+                    "type": "latihan_interaktif",
+                    "count": 300,
+                    "topics": ["aritmatika", "bangun_datar", "peluang"]
+                }
+            ],
+            "sma": [
+                {
+                    "source": "mathcyber1997.com/category/soal-dan-pembahasan/",
+                    "type": "pembahasan_video",
+                    "count": 800,
+                    "topics": ["kalkulus", "trigonometri", "vektor"]
+                }
+            ],
+            "kuliah": [
+                {
+                    "source": "tutorial.math.lamar.edu/Problems/CalcI/CalcI.aspx",
+                    "type": "textbook_problems",
+                    "count": 1000,
+                    "topics": ["kalkulus", "aljabar_linear", "persamaan_diferensial"]
+                }
+            ]
+        },
+        "fisika": {
+            "smp": [
+                {
+                    "source": "fisikastudycenter.com/fisika-smp/",
+                    "type": "soal_dan_pembahasan",
+                    "count": 400,
+                    "topics": ["gerak", "kalor", "cahaya"]
+                },
+                {
+                    "source": "amongguru.com/category/soal-ipa-smp/",
+                    "type": "latihan_bertingkat",
+                    "count": 250,
+                    "topics": ["listrik", "magnet", "gelombang"]
+                }
+            ],
+            "sma": [
+                {
+                    "source": "tanya-tanya.com/contoh-soal-pembahasan-fisika/",
+                    "type": "contoh_soal",
+                    "count": 600,
+                    "topics": ["mekanika", "termodinamika", "fisika_modern"]
+                },
+                {
+                    "source": "fisikastudycenter.com/fisika-sma/",
+                    "type": "bank_soal",
+                    "count": 700,
+                    "topics": ["gelombang", "listrik_magnet", "optika"]
+                }
+            ],
+            "kuliah": [
+                {
+                    "source": "ocw.mit.edu/courses/physics-i-classical-mechanics/exams/",
+                    "type": "exam_problems",
+                    "count": 150,
+                    "topics": ["mekanika_klasik", "lagrangian", "hamiltonian"]
+                }
+            ]
+        },
+        "kimia": {
+            "smp": [
+                {
+                    "source": "https://drive.google.com/file/d/1-vY-3iqT3LiBifDqcmP4fcJXK_91sP48/view",
+                    "type": "pdf_collection",
+                    "count": 200,
+                    "topics": ["zat_dan_perubahan", "unsur_dan_senyawa"]
+                }
+            ],
+            "sma": [
+                {
+                    "source": "urip.info",
+                    "type": "blog_pembahasan",
+                    "count": 450,
+                    "topics": ["stoikiometri", "kesetimbangan", "kimia_organik"]
+                },
+                {
+                    "source": "pak-anang.blogspot.com",
+                    "type": "prediksi_soal",
+                    "count": 300,
+                    "topics": ["termokimia", "elektrokimia", "kimia_unsur"]
+                }
+            ],
+            "kuliah": [
+                {
+                    "source": "chem.libretexts.org/Exercises",
+                    "type": "textbook_exercises",
+                    "count": 1200,
+                    "topics": ["kimia_analitik", "kimia_fisik", "biokimia"]
+                }
+            ]
+        },
+        "biologi": {
+            "smp": [
+                {
+                    "source": "proprofs.com/quiz-school/topic/biology-7th-grade",
+                    "type": "interactive_quiz",
+                    "count": 150,
+                    "topics": ["sel", "sistem_organ", "ekosistem"]
+                },
+                {
+                    "source": "pusmendik.kemdikbud.go.id/ayoakm/",
+                    "type": "akm_nasional",
+                    "count": 100,
+                    "topics": ["literasi_sains", "genetika_dasar"]
+                }
+            ],
+            "sma": [
+                {
+                    "source": "biologijk.com",
+                    "type": "pembahasan_lengkap",
+                    "count": 500,
+                    "topics": ["biologi_sel", "genetika", "evolusi"]
+                },
+                {
+                    "source": "quipper.com/id/blog/sbmptn/biologi-sbmptn/",
+                    "type": "sbmptn_preparation",
+                    "count": 350,
+                    "topics": ["metabolisme", "bioteknologi", "ekologi"]
+                }
+            ],
+            "kuliah": [
+                {
+                    "source": "tomatalikuang.com/soal-pembahasan-onmipa-biologi/",
+                    "type": "olympiad_preparation",
+                    "count": 400,
+                    "topics": ["molekular_biology", "biokimia", "mikrobiologi"]
+                }
+            ]
+        }
+    },
+    "scoring_system": {
+        "easy": {
+            "points": 10,
+            "time_bonus": 2,
+            "streak_bonus": 5
+        },
+        "medium": {
+            "points": 20,
+            "time_bonus": 3,
+            "streak_bonus": 10
+        },
+        "hard": {
+            "points": 30,
+            "time_bonus": 5,
+            "streak_bonus": 15
+        }
+    },
+    "leaderboard_categories": {
+        "daily": "Pemain terbaik hari ini",
+        "weekly": "Pemain terbaik minggu ini",
+        "monthly": "Pemain terbaik bulan ini",
+        "all_time": "Pemain terbaik sepanjang masa"
+    }
+}
